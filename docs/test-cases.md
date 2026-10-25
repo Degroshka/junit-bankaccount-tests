@@ -99,10 +99,10 @@
 
 | ID | Название | Что сделать | Ожидаемый результат | Приоритет | Статус |
 |----|----------|-------------|---------------------|-----------|--------|
-| TC-2.4.1 | Палиндромы через `@ValueSource` | Один тест с `@ParameterizedTest` и `@ValueSource(strings = {"racecar", "madam", "level", "kayak"})` | Выполняется 4 запуска, все зелёные | M | ⬜ |
-| TC-2.4.2 | Не-палиндромы через `@ValueSource` | Аналогичный тест для `{"hello", "world", "java"}` с `assertFalse` | Выполняется 3 запуска, все зелёные | M | ⬜ |
-| TC-2.4.3 | `countWords` через `@CsvSource` | `@CsvSource({"'hello world', 2", "'one two three', 3", "'', 0"})` | Выполняется 3 запуска, все зелёные | M | ⬜ |
-| TC-2.4.4 | `isAnagram` через `@CsvSource` | Придумай 4 пары строк с ожидаемым `true/false` | Все запуски зелёные | L | ⬜ |
+| TC-2.4.1 | Палиндромы через `@ValueSource` | Один тест с `@ParameterizedTest` и `@ValueSource(strings = {"racecar", "madam", "level", "kayak"})` | Выполняется 4 запуска, все зелёные | M | ✅ |
+| TC-2.4.2 | Не-палиндромы через `@ValueSource` | Аналогичный тест для `{"hello", "world", "java"}` с `assertFalse` | Выполняется 3 запуска, все зелёные | M | ✅ |
+| TC-2.4.3 | `countWords` через `@CsvSource` | `@CsvSource({"'hello world', 2", "'one two three', 3", "'', 0"})` | Выполняется 3 запуска, все зелёные | M | ✅ |
+| TC-2.4.4 | `isAnagram` через `@CsvSource` | Придумай 4 пары строк с ожидаемым `true/false` | Все запуски зелёные | L | ✅ |
 
 ---
 
