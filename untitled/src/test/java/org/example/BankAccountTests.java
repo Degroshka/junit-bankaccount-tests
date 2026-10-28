@@ -94,7 +94,7 @@ class BankAccountTests{
         assertEquals(250,acc.getBalance());
     }
     @Test
-    @Disabled("BUG-1: Конструктор принмает имя из одних цифр")
+    @Disabled("BUG-1: Конструктор принимает имя из одних цифр")
     @DisplayName("TC-1.2.10: Имя счета из одних цифр отклоняется")
     void CreateAccount_NumericOwner_throwsIllegalTest(){
         assertThrows(IllegalArgumentException.class,()-> new BankAccount("1234",300));
