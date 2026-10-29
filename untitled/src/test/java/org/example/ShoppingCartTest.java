@@ -140,5 +140,47 @@ public class ShoppingCartTest {
         cart.addItem(milk);
         assertEquals(90, cart.getTotalPrice(),0.001);
     }
+    @Test
+    @DisplayName("TC-3.4.1: Удаление существующего товара")
+    void removeItem_addThreeDeleteOneProduct_returnTwoProducts() {
+        Product milk = new Product("milk", 150);
+        Product bread = new Product("bread", 50.0);
+        Product cheese = new Product("cheese", 50.0);
+        cart.addItem(milk);
+        cart.addItem(bread);
+        cart.addItem(cheese);
+        cart.removeItem(cheese);
+       assertEquals(2, cart.getItemCount());
+    }
+    @Test
+    @DisplayName("TC-3.4.2: Удаление отсутствующего товара")
+    void removeItem_nonExistentProduct_throwsIllegalArgument() {
+        Product missingProduct = new Product("Ghost", 10.0);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> cart.removeItem(missingProduct));
+        assertEquals("Product not found in cart", exception.getMessage());
+    }
+    @Test
+    @DisplayName("TC-3.4.3: Добавление null")
+    void addItem_addNull_throwsIllegalArgument() {
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> cart.addItem(null));
+        assertEquals("Product cannot be null", exception.getMessage());
+    }
+    @Test
+    @DisplayName("TC-3.4.4: Удаление «такого же» товара (новый объект)")
+    void removeItem_identicalButNewObject_throwsException() {
+        Product book = new Product("book", 50.0);
+        Product missingProduct = new Product("book", 50.0);
+        cart.addItem(book);
+        IllegalArgumentException exception = assertThrows(
+                IllegalArgumentException.class,
+                () -> cart.removeItem(missingProduct));
+        assertEquals("Product not found in cart", exception.getMessage());
+    }
+
+
 
 }
