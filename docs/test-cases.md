@@ -153,9 +153,9 @@
 
 | ID       | Название                          | Предусловия        | Шаги                                      | Ожидаемый результат                                                                          | Приоритет | Статус |
 |----------|-----------------------------------|--------------------|-------------------------------------------|----------------------------------------------------------------------------------------------|-----------|--------|
-| TC-3.5.1 | Состояние после добавления товара | Корзина создана    | 1. `addItem(new Product("Book", 50.0))`   | Через `assertAll`: `getItemCount()` = `1`, `isEmpty()` = `false`, `getTotalPrice()` = `50.0` | M         | ⬜      |
-| TC-3.5.2 | Состояние после `clear()`         | В корзине 2 товара | 1. `clear()`                              | Через `assertAll`: `getItemCount()` = `0`, `isEmpty()` = `true`, `getTotalPrice()` = `0.0`   | M         | ⬜      |
-| TC-3.5.3 | `getItems()` защищён от изменений | В корзине 1 товар  | 1. `getItems().add(...)` в `assertThrows` | `UnsupportedOperationException`                                                              | L         | ⬜      |
+| TC-3.5.1 | Состояние после добавления товара | Корзина создана    | 1. `addItem(new Product("Book", 50.0))`   | Через `assertAll`: `getItemCount()` = `1`, `isEmpty()` = `false`, `getTotalPrice()` = `50.0` | M         | ✅      |
+| TC-3.5.2 | Состояние после `clear()`         | В корзине 2 товара | 1. `clear()`                              | Через `assertAll`: `getItemCount()` = `0`, `isEmpty()` = `true`, `getTotalPrice()` = `0.0`   | M         | ✅      |
+| TC-3.5.3 | `getItems()` защищён от изменений | В корзине 1 товар  | 1. `getItems().add(...)` в `assertThrows` | `UnsupportedOperationException`                                                              | L         | ✅      |
 
 ---
 

@@ -180,6 +180,41 @@ public class ShoppingCartTest {
                 () -> cart.removeItem(missingProduct));
         assertEquals("Product not found in cart", exception.getMessage());
     }
+    @Test
+    @DisplayName("TC-3.5.1: Состояние после добавления товара")
+    void addItem_firstProductAdded_updatesCartState() {
+        Product book = new Product("book", 50.0);
+        cart.addItem(book);
+        assertAll(
+                ()->assertEquals(1,cart.getItemCount()),
+                ()->assertFalse(cart.isEmpty()),
+                ()->assertEquals(50.0,cart.getTotalPrice(),0.001)
+        );
+    }
+    @Test
+    @DisplayName("TC-3.5.2: Состояние после clear()")
+    void clear_cartIsCleared_updatesCartState() {
+        Product book = new Product("book", 50.0);
+        Product cheese = new Product("cheese", 150.0);
+        cart.addItem(book);
+        cart.addItem(cheese);
+        cart.clear();
+        assertAll(
+                ()->assertEquals(0,cart.getItemCount()),
+                ()->assertTrue(cart.isEmpty()),
+                ()->assertEquals(0,cart.getTotalPrice(),0.001)
+        );
+    }
+    @Test
+    @DisplayName("TC-3.5.3: getItems() защищён от изменений")
+    void getItems_safeFromChanges_UnsupportedOperation() {
+        Product book = new Product("book", 50.0);
+        cart.addItem(book);
+        Product fakebook = new Product("book", 50.0);
+        assertThrows(
+                UnsupportedOperationException.class,
+                () -> cart.getItems().add(fakebook));
+    }
 
 
 
